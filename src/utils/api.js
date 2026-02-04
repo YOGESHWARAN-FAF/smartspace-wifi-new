@@ -14,7 +14,7 @@ export const checkConnection = async (ip, port) => {
 
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 3000); // 3s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
 
     const response = await fetch(url, {
       signal: controller.signal,
