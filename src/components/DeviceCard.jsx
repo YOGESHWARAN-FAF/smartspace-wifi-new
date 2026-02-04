@@ -33,9 +33,9 @@ const DeviceCard = ({ device, venueId }) => {
           addToast(`Failed to set value: ${error.message}`, 'error');
         }
       };
-      
+
       if (debouncedValue !== device.value) {
-         sync();
+        sync();
       }
     }
   }, [debouncedValue, device.type, device.name, venueId, espConfig, addToast, device.value, updateDeviceLocal]);
@@ -57,7 +57,8 @@ const DeviceCard = ({ device, venueId }) => {
     } catch (error) {
       // Revert on failure
       updateDeviceLocal(venueId, device.id, { state: device.state }); // revert
-      addToast(`Failed to toggle: ${error.message}`, 'error');
+      addToast(`Failed to toggle: ${error.message || 'Check connection or device name'}`, 'error');
+      console.error("Device Toggle Error:", error);
     }
   };
 
