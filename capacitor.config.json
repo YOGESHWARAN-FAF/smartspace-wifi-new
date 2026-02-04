@@ -1,5 +1,12 @@
 {
   "appId": "com.smart.space",
   "appName": "SmartSpace",
-  "webDir": "dist"
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "http",
+    "cleartext": true,
+    "allowNavigation": [
+      "*"
+    ]
+  }
 }
